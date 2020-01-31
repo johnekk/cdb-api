@@ -1,0 +1,14 @@
+/home/excilys/eclipse-workspace/maven-computer_database/src/main/java/com/excilys/cdb/model/Company.java
+/home/excilys/eclipse-workspace/maven-computer_database/src/main/java/com/excilys/cdb/services/CompanyService.java
+/home/excilys/eclipse-workspace/maven-computer_database/src/main/java/com/excilys/cdb/ui/Actions.java
+/home/excilys/eclipse-workspace/maven-computer_database/src/main/java/com/excilys/cdb/ui/Main.java
+/home/excilys/eclipse-workspace/maven-computer_database/src/main/java/com/excilys/cdb/mapper/CompanyMapper.java
+/home/excilys/eclipse-workspace/maven-computer_database/src/main/java/com/excilys/cdb/model/Computer.java
+/home/excilys/eclipse-workspace/maven-computer_database/src/main/java/com/excilys/cdb/exceptions/DAOConfigurationException.java
+/home/excilys/eclipse-workspace/maven-computer_database/src/main/java/com/excilys/cdb/services/ComputerService.java
+/home/excilys/eclipse-workspace/maven-computer_database/src/main/java/com/excilys/cdb/exceptions/DAOException.java
+/home/excilys/eclipse-workspace/maven-computer_database/src/main/java/com/excilys/cdb/dao/MySQLConnection.java
+/home/excilys/eclipse-workspace/maven-computer_database/src/main/java/com/excilys/cdb/dao/CompanyDAO.java
+/home/excilys/eclipse-workspace/maven-computer_database/src/main/java/com/excilys/cdb/dao/ComputerDAO.java
+/home/excilys/eclipse-workspace/maven-computer_database/src/main/java/com/excilys/cdb/mapper/ComputerMapper.java
+/home/excilys/eclipse-workspace/maven-computer_database/src/main/java/com/excilys/cdb/ui/Display.java
