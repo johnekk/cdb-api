@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.excilys.cdb.dtos.ComputerDTO;
@@ -16,6 +17,7 @@ import com.excilys.cdb.services.ComputerService;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
+@RequestMapping(value = "/computers")
 public class ComputerRestController {
 	
 	private ComputerService computerService;
@@ -26,7 +28,7 @@ public class ComputerRestController {
 	}
 	
 	@CrossOrigin
-	@GetMapping("/")
+	@GetMapping
 	@ApiOperation(value = "${swagger.computers}", notes = "${swagger.computers.desc}")
 	public List<ComputerDTO> getAll() {	
 		return computerService.findAll();
