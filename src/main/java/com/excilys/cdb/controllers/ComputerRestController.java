@@ -29,7 +29,7 @@ public class ComputerRestController {
 	
 	@CrossOrigin
 	@GetMapping
-	@ApiOperation(value = "${swagger.computers}", notes = "${swagger.computers.desc}")
+	//@ApiOperation(value = "${swagger.computers}")
 	public List<ComputerDTO> getAll() {	
 		return computerService.findAll();
 	}

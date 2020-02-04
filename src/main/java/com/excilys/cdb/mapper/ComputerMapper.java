@@ -82,7 +82,8 @@ public class ComputerMapper implements RowMapper<Computer>{
 								setIntroduced(res.getTimestamp("introduced")==null?null:res.getTimestamp("introduced").toLocalDateTime().toLocalDate()).
 								setdiscontinued(res.getTimestamp("discontinued")==null?null:res.getTimestamp("discontinued").toLocalDateTime().toLocalDate()).
 								setCompany(new 	Company.CompanyBuilder().
-												setName(res.getString("name")).build()).build();
+												setId(res.getInt("company_id")).
+												setName(res.getString("company_name")).build()).build();
 		return computer;
 	}
 	

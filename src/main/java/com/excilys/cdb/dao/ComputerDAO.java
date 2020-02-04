@@ -20,15 +20,11 @@ public class ComputerDAO {
 											+ "	VALUES (?,?,?,?)";
 
 	
-	private static final String FIND_ALL_COMPUTERS 	= "	SELECT computer.id, computer.name, computer.introduced, computer.discontinued, computer.company_id, company.name"
-												+ "	FROM computer, company"
-												+ " WHERE company.id = computer.company_id";
+	private static final String FIND_ALL_COMPUTERS = "select ct.id, ct.name, ct.introduced, ct.discontinued,"
+    		+ " ct.company_id, company.id, company.name as company_name"
+    		+ " from computer ct"
+    		+ " LEFT JOIN company ON ct.company_id = company.id";
 	
-	/*private static final String FIND_ALL_COMPUTER_PAGINATION 	= "SELECT  computer.id, computer.name, computer.introduced, computer.discontinued, "
-														+ "computer.company_id, company.name "
-														+ "FROM computer "
-														+ "LEFT JOIN company ON computer.company_id = company.id "														
-														+ "LIMIT ? OFFSET ? ;";*/
 	
 	private static final String FIND_COMPUTER_BY_ID	=	" SELECT computer.id, computer.name, computer.introduced, computer.discontinued, computer.company_id, company.name"
 												+ 	" FROM computer, company"
