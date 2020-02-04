@@ -24,10 +24,10 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc //Adding this annotation to an @Configuration class imports the Spring MVC configuration from WebMvcConfigurationSupport
-@ComponentScan(basePackages = {	"com.excilys.cdb.configuration",
+@ComponentScan(basePackages = {	"com.excilys.cdb.configurations",
 								"com.excilys.cdb.controllers",
 								"com.excilys.cdb.dao",
-								"com.excilys.cdb.dto",
+								"com.excilys.cdb.dtos",
 								"com.excilys.cdb.services"})
 @PropertySource("classpath:datasource.properties")
 public class SpringConfig implements WebApplicationInitializer {
