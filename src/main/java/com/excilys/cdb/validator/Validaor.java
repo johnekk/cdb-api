@@ -8,8 +8,7 @@ import com.excilys.cdb.exceptions.NameFormatException;
 
 public class Validaor {
 	
-	public static void validationComputer(String name, LocalDateTime introduced, 
-			LocalDateTime discontinued) throws DateIntervaleException, DateFormatException, NameFormatException{
+	public static void validationComputer(String name, LocalDateTime introduced,LocalDateTime discontinued) throws DateIntervaleException, DateFormatException, NameFormatException{
 			validationName(name);
 			validationDate(introduced, discontinued);
 	}

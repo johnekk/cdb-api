@@ -18,6 +18,9 @@ public class ComputerDTO {
 	}
 	
 	
+	public ComputerDTO() {}
+
+	
 	public static class ComputerDTOBuilder {
 		
 		private int id;

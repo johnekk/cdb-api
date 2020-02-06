@@ -10,6 +10,14 @@ public class CompanyDTO {
 		this.name = builder.name;
 	}
 	
+	public CompanyDTO() {
+	}
+
+	public CompanyDTO(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
 	public static class CompanyDTOBuilder {
 		private int id;
 	    private String name;

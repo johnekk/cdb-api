@@ -3,7 +3,6 @@ package com.excilys.cdb.mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,34 +16,27 @@ import com.excilys.cdb.model.Computer;
 
 public class ComputerMapper implements RowMapper<Computer>{
 	
-	public ComputerMapper() {};
-	
-	public static LocalDateTime StringToLocalDateTime(String introduced) {
-		introduced = introduced + " 00:00";
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-		return LocalDateTime.parse(introduced, formatter);
-	}
 	
 	public static Computer computerDTOToComputer(ComputerDTO computerDTO) {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");	
+		
 		String dateStringInt = computerDTO.getIntroduced();
 		LocalDate introduced = dateStringInt.equals("") ? null : LocalDate.parse(dateStringInt, formatter);
 		
 		String dateStringDis = computerDTO.getDiscontinued();
-		LocalDate discontinued = dateStringInt.equals("") ? null : LocalDate.parse(dateStringDis, formatter);
+		LocalDate discontinued = dateStringDis.equals("") ? null : LocalDate.parse(dateStringDis, formatter);
 		
 		CompanyDTO companyDTO = computerDTO.getCompanyDTO();
 		
-		Computer c = new Computer.ComputerBuilder().
+		return new Computer.ComputerBuilder().
 							setId(computerDTO.getId()).
 							setName(computerDTO.getName()).
 							setIntroduced(introduced).
-							setdiscontinued(discontinued).
+							setdiscontinued(discontinued). 
 							setCompany(new Company.CompanyBuilder().
 										setId(companyDTO.getId()).
 										setName(companyDTO.getName()).build()).
 							build();
-		return c;
 	}
 	
 	public static ComputerDTO computerToComputerDTO(Computer computer) {

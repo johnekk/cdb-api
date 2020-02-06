@@ -73,6 +73,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 		web.ignoring().antMatchers(HttpMethod.POST, "/users").antMatchers("/computers")
 				.antMatchers(HttpMethod.GET, "/companys")
 				.antMatchers(HttpMethod.GET, "/**")
+				.antMatchers(HttpMethod.DELETE, "/**")
 				.antMatchers(HttpMethod.OPTIONS, "/**");
 	}
 
