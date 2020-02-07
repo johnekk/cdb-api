@@ -70,8 +70,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers(HttpMethod.POST, "/users").antMatchers("/computers")
-				.antMatchers(HttpMethod.GET, "/companys")
+		web.ignoring().antMatchers(HttpMethod.POST, "/users").antMatchers("/computers").antMatchers("/companys")
 				.antMatchers(HttpMethod.GET, "/**")
 				.antMatchers(HttpMethod.DELETE, "/**")
 				.antMatchers(HttpMethod.OPTIONS, "/**");

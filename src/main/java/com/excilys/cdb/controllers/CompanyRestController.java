@@ -12,43 +12,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.excilys.cdb.dtos.ComputerDTO;
-import com.excilys.cdb.mapper.ComputerMapper;
-import com.excilys.cdb.services.ComputerService;
+import com.excilys.cdb.dtos.CompanyDTO;
+import com.excilys.cdb.mapper.CompanyMapper;
+import com.excilys.cdb.services.CompanyService;
 
 @RestController
-@RequestMapping(value = "/computers")
-public class ComputerRestController {
+@RequestMapping(value = "/companys")
+public class CompanyRestController {
+
+	private CompanyService companyService;
 	
-	private ComputerService computerService;
-	
-		
-	public ComputerRestController(ComputerService computerService) {
-		this.computerService = computerService;
+	public CompanyRestController(CompanyService companyService) {
+		this.companyService = companyService;
 	}
 	
 	@CrossOrigin
 	@GetMapping
 	//@ApiOperation(value = "${swagger.computers}")
-	public List<ComputerDTO> getAll() {	
-		return computerService.findAll();
+	public List<CompanyDTO> getAll() {	
+		return companyService.findAll();
 	}
 	
 	@CrossOrigin
 	@PostMapping
-	public boolean create(@RequestBody ComputerDTO computerDTO) {
-		return computerService.create( ComputerMapper.computerDTOToComputer(computerDTO));
+	public boolean create(@RequestBody CompanyDTO companyDTO) {
+		return companyService.create(CompanyMapper.companyDTOtoCompany(companyDTO));
 	}
 	
 	@CrossOrigin
 	@PutMapping("/{id}")
-	public boolean edit(@RequestBody ComputerDTO computerDTO) {
-		return computerService.update( ComputerMapper.computerDTOToComputer(computerDTO));
+	public boolean edit(@RequestBody CompanyDTO companyDTO) {
+		return companyService.update(CompanyMapper.companyDTOtoCompany(companyDTO));
 	}
 	
 	@CrossOrigin
 	@DeleteMapping("/{id}")
 	public boolean delete(@PathVariable int id) {	
-		return computerService.delete(id);
+		return companyService.delete(id);
 	}
 }

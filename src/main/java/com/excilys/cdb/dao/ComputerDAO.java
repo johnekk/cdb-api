@@ -37,7 +37,7 @@ public class ComputerDAO {
 	
 	
 	private static final String UPDATE_COMPUTER = "	UPDATE computer"
-												+ "	SET name = ?, introduce = ?, discontinued = ?, company_id = ?"
+												+ "	SET name = ?, introduced = ?, discontinued = ?, company_id = ?"
 												+ "	WHERE id = ?";
 
 	

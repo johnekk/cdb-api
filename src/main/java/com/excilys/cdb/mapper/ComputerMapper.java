@@ -34,8 +34,8 @@ public class ComputerMapper implements RowMapper<Computer>{
 							setIntroduced(introduced).
 							setdiscontinued(discontinued). 
 							setCompany(new Company.CompanyBuilder().
-										setId(companyDTO.getId()).
-										setName(companyDTO.getName()).build()).
+										setId(companyDTO == null ? null : companyDTO.getId()).
+										setName(companyDTO == null ? null :companyDTO.getName()).build()).
 							build();
 	}
 	
