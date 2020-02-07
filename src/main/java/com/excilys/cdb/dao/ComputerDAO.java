@@ -20,30 +20,30 @@ public class ComputerDAO {
 											+ "	VALUES (?,?,?,?)";
 
 	
-	private static final String FIND_ALL_COMPUTERS = "select ct.id, ct.name, ct.introduced, ct.discontinued,"
-    		+ " ct.company_id, company.id, company.name as company_name"
-    		+ " from computer ct"
-    		+ " LEFT JOIN company ON ct.company_id = company.id";
+	private static final String FIND_ALL_COMPUTERS 	= "select ct.id, ct.name, ct.introduced, ct.discontinued,"
+    												+ " ct.company_id, company.id, company.name as company_name"
+    												+ " from computer ct"
+    												+ " LEFT JOIN company ON ct.company_id = company.id";
 	
 	
-	private static final String FIND_COMPUTER_BY_ID	=	" SELECT computer.id, computer.name, computer.introduced, computer.discontinued, computer.company_id, company.name"
-												+ 	" FROM computer, company"
-												+ 	" WHERE company.id = computer.company_id"
-												+ 	" AND computer.id = ?";
+	private static final String FIND_COMPUTER_BY_ID	= " SELECT computer.id, computer.name, computer.introduced, computer.discontinued, computer.company_id, company.name"
+													+ " FROM computer, company"
+													+ " WHERE company.id = computer.company_id"
+													+ " AND computer.id = ?";
 	
 		
 	private static final String FIND_NUMBER_OF_COMPUTER	= "	SELECT count(computer.id) AS 'nbComputer'"
-													+ "	FROM computer";
+														+ "	FROM computer";
 	
 	
-	private static final String UPDATE_COMPUTER 	= "	UPDATE computer"
-											+ "	SET name = ?, introduce = ?, discontinued = ?, company_id = ?"
-											+ "	WHERE id = ?";
+	private static final String UPDATE_COMPUTER = "	UPDATE computer"
+												+ "	SET name = ?, introduce = ?, discontinued = ?, company_id = ?"
+												+ "	WHERE id = ?";
 
 	
-	private static final String DELETE_COMPUTER 	= "	DELETE "
-											+ "	FROM computer"
-											+ "	WHERE id = ?";
+	private static final String DELETE_COMPUTER = "	DELETE "
+												+ "	FROM computer"
+												+ "	WHERE id = ?";
 
 	
 	public ComputerDAO(DataSource dataSource) {
@@ -52,11 +52,10 @@ public class ComputerDAO {
 	
 
 	public boolean createComputer(Computer computer) throws DAOException {
-		return jdbcTemplate.update(CREATE_COMPUTER, computer.getId(),
-													computer.getName(), 
+		return jdbcTemplate.update(CREATE_COMPUTER, computer.getName(),
 													computer.getIntroduced(),
 													computer.getDiscontinued(),
-													computer.getCompany()) > 0;
+													computer.getCompany().getId()) > 0;
 	}
 
 	public List<Computer> findAllComputers() {

@@ -42,13 +42,13 @@ public class ComputerRestController {
 	}
 	
 	@CrossOrigin
-	@DeleteMapping("/{id}/")
+	@DeleteMapping("/{id}")
 	public boolean delete(@PathVariable int id) {	
 		return computerService.delete(id);
 	}
 	
 	@CrossOrigin
-	@PutMapping
+	@PutMapping("/{id}")
 	public boolean edit(ComputerDTO computerDTO) {
 		return computerService.update( ComputerMapper.computerDTOToComputer(computerDTO) );
 	}
