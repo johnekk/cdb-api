@@ -48,8 +48,8 @@ public class ComputerRestController {
 	}
 	
 	@CrossOrigin
-	@PutMapping("/{id}")
-	public boolean edit(ComputerDTO computerDTO) {
+	@PutMapping()
+	public boolean edit(@RequestBody ComputerDTO computerDTO) {
 		return computerService.update( ComputerMapper.computerDTOToComputer(computerDTO) );
 	}
 	
