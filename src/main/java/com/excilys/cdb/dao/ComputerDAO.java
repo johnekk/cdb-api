@@ -26,10 +26,16 @@ public class ComputerDAO {
     												+ " LEFT JOIN company ON ct.company_id = company.id";
 	
 	
-	private static final String FIND_COMPUTER_BY_ID	= " SELECT computer.id, computer.name, computer.introduced, computer.discontinued, computer.company_id, company.name"
-													+ " FROM computer, company"
-													+ " WHERE company.id = computer.company_id"
-													+ " AND computer.id = ?";
+//	private static final String FIND_COMPUTER_BY_ID	= " SELECT computer.id, computer.name, computer.introduced, computer.discontinued, computer.company_id, company.name"
+//													+ " FROM computer, company"
+//													+ " WHERE company.id = computer.company_id"
+//													+ " AND computer.id = ?";
+	
+	private static final String FIND_COMPUTER_BY_ID = "select ct.id, ct.name, ct.introduced, ct.discontinued,"
+    		+ " ct.company_id, company.id, company.name as company_name"
+    		+ " from computer ct"
+    		+ " LEFT JOIN company ON ct.company_id = company.id"
+	    	+ " where ct.id = ? ";
 	
 		
 	private static final String FIND_NUMBER_OF_COMPUTER	= "	SELECT count(computer.id) AS 'nbComputer'"

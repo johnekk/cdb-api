@@ -41,7 +41,8 @@ public class CompanyRestController {
 	
 	@CrossOrigin
 	@PutMapping("/{id}")
-	public boolean edit(@RequestBody CompanyDTO companyDTO) {
+	public boolean edit(@RequestBody CompanyDTO companyDTO, @PathVariable int id) {
+		companyDTO.setId(id);
 		return companyService.update(CompanyMapper.companyDTOtoCompany(companyDTO));
 	}
 	

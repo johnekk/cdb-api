@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.excilys.cdb.dtos.ComputerDTO;
 import com.excilys.cdb.mapper.ComputerMapper;
+import com.excilys.cdb.model.Computer;
 import com.excilys.cdb.services.ComputerService;
 
 @RestController
@@ -35,6 +36,12 @@ public class ComputerRestController {
 	}
 	
 	@CrossOrigin
+	@GetMapping("/{id}")
+	public Computer getById(@PathVariable int id){	
+		return computerService.findByID(id);
+	}
+	
+	@CrossOrigin
 	@PostMapping
 	public boolean create(@RequestBody ComputerDTO computerDTO) {
 		return computerService.create( ComputerMapper.computerDTOToComputer(computerDTO));
@@ -42,7 +49,8 @@ public class ComputerRestController {
 	
 	@CrossOrigin
 	@PutMapping("/{id}")
-	public boolean edit(@RequestBody ComputerDTO computerDTO) {
+	public boolean edit(@RequestBody ComputerDTO computerDTO, @PathVariable int id) {
+		computerDTO.setId(id);
 		return computerService.update( ComputerMapper.computerDTOToComputer(computerDTO));
 	}
 	
